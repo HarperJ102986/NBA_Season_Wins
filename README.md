@@ -2,11 +2,11 @@
 Capstone: Jose Harper
 
 ## Main Files:
-- NBA_daily_betting_model.csv
+- NBA_season_wins.csv
 - Presentation.pdf
 
 ## Business problem: 
-Most NBA sports algorithms try to predict winning each individual game instead of looking at the season as a whole. Algorithms only take into account features such as Points Allowed, Points For, Shooting percentage, Turnovers and Rebounds from the last 10 games or so. I must dig deeper and find out the best model to predict highest overall season wins and pull out the principal components that are highley correlated to most wins using the first half of the 2022 season stats.¶
+Most NBA sports algorithms try to predict winning each individual game instead of looking at the season as a whole. Algorithms only take into account features such as Points Allowed, Points For, Shooting percentage, Turnovers and Rebounds from the last 10 games or so. I must dig deeper and find out the best model to predict highest overall season wins and pull out the principal components that are highley correlated to most wins using stats from 1986 until the first half of the 2022 season stats.¶
 ### Stakeholder: 
 NBA Team Analyst or Scout hired by lower rank team to figure out the best way to increase wins per NBA 2022 season based on 27 features. I must help them predict the best draft picks along with what potential trades could make for a better winning outcome for the over all season.
 
@@ -45,3 +45,4 @@ step 6: set up scatter plots of the features to the target values to show linear
 - In future analysis I want to use an api that updates the stats in real time.
 - Use a much smaller data set such as the last 10 seasons compared to 35. The game has changed drastically so the newer the information the better at predicting the best team for wins
 - Also compare salary caps in terms of picking players (Drafting v trading). 
+-Add features to data set such as average age, weight, and height for players that average at least 5 minutes per game. 
