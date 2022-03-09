@@ -62,3 +62,10 @@ Using the best trained model which was the 8 feature multiple linear regression 
 ## For more information or questions, please reach out to Jose Harper at harper.jose@gmail.com
 
 ## Repository Structure
+- .git
+- .ipynb_checkpoints
+- data
+- .gitignore
+- initial heatmap
+- general presentation pdf
+- NBA_Season_Wins.ipynb
