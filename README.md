@@ -1,16 +1,14 @@
-# NBA maximum season wins
+# NBA  season wins
 
-
-## Business Understanding
 Capstone: Jose Harper
 
 ## Main Files:
 - NBA_season_wins.csv
 - Presentation.pdf
-- NBA_season_wins.ipynb
+- NBA_season_winsF.ipynb
 
 ### Stakeholder: 
-NBA Team Analyst or Scout hired by lower rank team to figure out the best way to increase wins per NBA 2022 season based on 27 features. I must help them predict the best draft picks along with what potential trades could make for a better winning outcome for the over all season.
+I was hired by Houton Rockets Organization to explore other methods of predicting a team's season-long rank and what features contribute to that prediction from the data provided.
 
 ## Business problem: 
 Most NBA sports algorithms try to predict winning each individual game instead of looking at the season as a whole. Algorithms only take into account features such as Points Allowed, Points For, Shooting percentage, Turnovers and Rebounds from the last 10 games or so. I must dig deeper and find out the best model to predict highest overall season wins and pull out the principal components that are highley correlated to most wins using stats from 1986 until the first half of the 2022 season stats.¶
@@ -21,36 +19,40 @@ Most NBA sports algorithms try to predict winning each individual game instead o
 - This data will be on the NBA. I will use 35 season starting from the 1986 season until the first half of the current 2022 season. Feature categories include: Pounts total, offensive rebounds, defensive rebounds, 3 point attempts, 3 pointers made, field goal attempts, field goals made, 2 point attempts, 2 points made, personal fouls, free throws, free throw attempts, assists, steals, blocks and turnovrs. I am going to utlize this information to predict the best winning record or "Rank". 
 
 ## Data Gathering
-Since the sports-reference sites API code was not working and I could not debug in time I had to manually scrape the data from each webpage to get the season data from 1986-2022. I did this by creating a CSV file for each season and importing it into an excel spreadsheet. After doing that to each season I then did preprocessing for the data. 
+Went to site and scrolled down to "Share and Export" section of the team summary data.
+copied and pasted that data into an Excel spreadsheet.
+Made the data fit the format by using the "text to columns" function in Excel
+Saved the data for that year and then repreated this for 35 NBA seasons to get enough data for modeling
 
 ### Data Preparation EDA 
-Step 1: Data consists of 35 separate data frames. data frame each contains 24 features. 1 categorical column (Team Name). 
-Step 2: Concatanate all 35 data frames using glob tool to condense the dataframe for modeling. 
-Step 3: Drop all columns with Null values
-Step 4: Change the Target value or Rank to ordinal data so that the algorithm can use the data properly.
-step 5: Plot heatmap to show which features have high multicolinearity
-step 6: set up scatter plots of the features to the target values to show linear correlation (if any)
-step 7: create baseline model from simple linear regression
-step 8: make multiple variable linear regression models
-step 9: make classifier models
+-Step 1: Data consists of 2 separate data frames. data frame one contains 24 features. 1 categorical column (Team Name). Data frame 2 contains information that should be dropped. Drop: first row of int., player, position, nationality, and college.¶
+
+-Step 2: create columns with list values with each teams Average weight, height, age, and experience.
+
+-Step 3: Concatinate both data frames so that the features are all condensed for modeling
+
+-Step 4: create new collumn with team wins for target value.
 
 ## Modeling
-- LR model: Run train, test split with entire data set for features as X value, as for the Y value being the target value (Wins).
+- Baseline Model
+Strongest correlated feature starying with single regression model
+RMSE: 47
+R2: 37
 
-- Hand picked LR (Test set features: added average teams height, weight, age, and experience And drop features that are highley multicolinear).
-
-- Created  function to do 4 models at once. I used Random forest, KNearest Neighbors, decision Tree and XGX gradient boost classifiers.
+- Model 4
+Using all the data not from the multicolinearity assumption funtion to see if it can improve model metrics.
+RMSE: 24
+R@: 63
 
 ## Evaluate Models
-- After running the 4 models I was able to determine that the 8 features multiple linear regression was the best model due to its high R squared value and lowest RSME.  
+- After running the 6 models I was able to determine that the 8 features multiple linear regression was the best model due to its high R squared value and lowest RSME.  
 
-Using the best trained model which was the 8 feature multiple linear regression model since it was the best with an R squared value of .89 and the lowest RMSE or condition numbers. The key metrics in determining season high wins is 3 point percentage, high amount of total points per game scored, Field goal percentage, Rebounds, steals, and assists.
+Using the best trained model which was the 8 feature multiple linear regression model since it was the best with an R squared value of .63 and the lowest RMSE or condition numbers. The key metrics in determining season high wins is 3 point percentage, high amount of total points per game scored, Field goal percentage, Rebounds, steals, and assists.
 
 
 ## Conclusions:
 - The best features for ensuring the best possible record for the season in terms of wins would be over all points scored, 3 point field goals made, rebounds, steals and assists. 
 
--Since 
 
 
 ## Future analysis:
@@ -68,4 +70,4 @@ Using the best trained model which was the 8 feature multiple linear regression 
 - .gitignore
 - initial heatmap
 - general presentation pdf
-- NBA_Season_Wins.ipynb
+- NBA_Season_WinsF.ipynb
